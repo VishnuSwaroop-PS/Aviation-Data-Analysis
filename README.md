@@ -141,6 +141,25 @@ The project provides several key insights into flight delays:
 
 For detailed explanations of each visualization, refer to the comments in the `index.html` template.
 
+## Screenshots
+
+Here are the screenshots of the web interface for the various analyses:
+
+1. **Distribution of Flight Delays**  
+![Distribution of Flight Delays](./screenshots/1.png)
+
+2. **Average Delays by Day of the Week**  
+![Average Delays by Day of the Week](./screenshots/2.png)
+
+3. **Comparison of Delays Across Airlines**  
+![Comparison of Delays Across Airlines](./screenshots/3.png)
+
+4. **Correlation Between Departure Time and Delay Duration**  
+![Correlation Between Departure Time and Delay Duration](./screenshots/4.png)
+
+5. **Recommendations**  
+![Recommendations](./screenshots/5.png)
+
 ## Contributing
 
 Contributions to this project are welcome! Please follow these steps:

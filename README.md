@@ -148,13 +148,13 @@ Here are the screenshots of the web interface for the various analyses:
 1. **Distribution of Flight Delays**  
 ![Distribution of Flight Delays](./screenshots/1.png)
 
-2. **Average Delays by Day of the Week**  
+2. **Comparison of Delays Across Airlines**  
 ![Average Delays by Day of the Week](./screenshots/2.png)
 
-3. **Comparison of Delays Across Airlines**  
+3. **Relationship Between Flight delay and Departure time**  
 ![Comparison of Delays Across Airlines](./screenshots/3.png)
 
-4. **Correlation Between Departure Time and Delay Duration**  
+4. **Differences in Delay between Airlines**  
 ![Correlation Between Departure Time and Delay Duration](./screenshots/4.png)
 
 5. **Recommendations**  

@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Flight Delay Analysis Dashboard</title>
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+</head>
+<body class="bg-gray-900 text-white font-sans leading-normal tracking-normal">
+    <div class="container mx-auto my-12">
+        <!-- Page Heading -->
+        <h1 class="text-5xl font-bold text-center text-gray-100 mb-10">Flight Delay Data Insights & Analysis</h1>
+
+        <!-- Data Analysis Section -->
+        <!-- <section>
+            <h2 class="text-4xl font-semibold text-gray-200 mb-6 text-center">Data Analysis</h2> -->
+
+            <!-- Responsive Grid Layout for Graph Cards -->
+            <div class="grid grid-cols-1 sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-2 gap-8">
+                
+                <!-- Card 1: Distribution of Flight Delays -->
+                <div class="bg-gray-800 shadow-lg rounded-lg p-4">
+                    <h3 class="text-2xl font-semibold text-gray-100 mb-4">Distribution of Flight Delays</h3>
+                    <img src="{{ url_for('plot', plot_name='plot1') }}" alt="Distribution of Flight Delays" class="rounded-lg">
+                    <p class="text-gray-300 mt-4">The graph shows that most flights are delayed between 15 and 30 minutes, with peaks around 20 minutes. Delays beyond 40 minutes are less frequent, and only a few flights have delays up to 60 minutes. The curve shows that longer delays are rare compared to shorter ones.</p>
+                </div>
+                
+                <!-- Card 2: Box Plot of Flight Delays -->
+                <div class="bg-gray-800 shadow-lg rounded-lg p-4">
+                    <h3 class="text-2xl font-semibold text-gray-100 mb-4">Box Plot of Flight Delays</h3>
+                    <img src="{{ url_for('plot', plot_name='plot2') }}" alt="Box Plot of Flight Delays" class="rounded-lg">
+                    <p class="text-gray-300 mt-4">The box plot shows that most flight delays range between 15 to 30 minutes. The median delay is 20 minutes. Delays typically fall between 5 and 40 minutes, but one flight has a 60-minute delay, making it an outlier.</p>
+                </div>
+                
+                <!-- Card 3: Average Delay by Day of the Week -->
+                <div class="bg-gray-800 shadow-lg rounded-lg p-4">
+                    <h3 class="text-2xl font-semibold text-gray-100 mb-4">Average Delay by Day of the Week</h3>
+                    <img src="{{ url_for('plot', plot_name='plot3') }}" alt="Average Delay by Day of the Week" class="rounded-lg">
+                    <p class="text-gray-300 mt-4">Mondays and Saturdays experience the highest delays, possibly due to higher passenger volume or operational factors that cause more congestion or scheduling issues.
+                        Fridays and Sundays have lower delays, indicating these days may be less prone to operational delays or disruptions.
+                        This insight could help travelers plan flights on days with historically lower delays to avoid long waits.</p>
+                </div>
+                
+                <!-- Card 4: Average Delay by Airline -->
+                <div class="bg-gray-800 shadow-lg rounded-lg p-4">
+                    <h3 class="text-2xl font-semibold text-gray-100 mb-4">Average Delay by Airline</h3>
+                    <img src="{{ url_for('plot', plot_name='plot4') }}" alt="Average Delay by Airline" class="rounded-lg">
+                    <p class="text-gray-300 mt-4">This chart shows that United Airlines and American Airlines have similar average delays, both close to 30 minutes. In contrast, Delta has much shorter delays, around 15 minutes, indicating better on-time performance. Delta's reliability could give it a competitive edge over the other two airlines.</p>
+                </div>
+                
+                <!-- Card 5: Delays vs Departure Time -->
+                <div class="bg-gray-800 shadow-lg rounded-lg p-4">
+                    <h3 class="text-2xl font-semibold text-gray-100 mb-4">Flight Delays vs Departure Time</h3>
+                    <img src="{{ url_for('plot', plot_name='plot5') }}" alt="Flight Delays vs Departure Time" class="rounded-lg">
+                    <p class="text-gray-300 mt-4">As the departure hour progresses from morning (8 AM) to evening (8 PM), the delays tend to increase. Flights departing in the evening (around 6 to 8 PM) experience much longer delays, often exceeding 40 to 60 minutes, while flights earlier in the day have significantly shorter delays, mostly under 20 minutes.
+
+                        This suggests that later flights are more prone to longer delays, potentially due to factors like cumulative delays throughout the day or busier air traffic in the evening hours.</p>
+                </div>
+                
+                <!-- Card 6: Box Plot of Delays by Departure Hour -->
+                <div class="bg-gray-800 shadow-lg rounded-lg p-4">
+                    <h3 class="text-2xl font-semibold text-gray-100 mb-4">Box Plot of Delays by Departure Hour</h3>
+                    <img src="{{ url_for('plot', plot_name='plot6') }}" alt="Box Plot of Delays by Departure Hour" class="rounded-lg">
+                    <p class="text-gray-300 mt-4">The box plot shows that flight delays vary significantly by departure hour. Afternoon flights (13:00) have the lowest and most consistent delays, with most delays around 10 minutes. In contrast, delays for evening flights (19:00-20:00) are much higher, with some reaching nearly 60 minutes. Delays increase progressively through the day.</p>
+                </div>
+                
+                <!-- Card 7: ANOVA Analysis by Airline -->
+                <div class="bg-gray-800 shadow-lg rounded-lg p-4">
+                    <h3 class="text-2xl font-semibold text-gray-100 mb-4">ANOVA Analysis by Airline</h3>
+                    <img src="{{ url_for('plot', plot_name='plot7') }}" alt="ANOVA Analysis by Airline" class="rounded-lg">
+                    <p class="text-gray-300 mt-4">The boxplot shows flight delays for American Airlines, Delta, and United Airlines. While Delta has lower and more consistent delays, and American Airlines has a wider range of delay times, the ANOVA test reveals no statistically significant difference in delays between the three airlines. This means that the observed differences in delay times are likely due to random variation rather than any real difference between the airlines.</p>
+                </div>
+
+            </div>
+        </section>
+
+        <!-- Recommendations Section -->
+        <section class="bg-gray-800 p-6 mt-12 rounded-lg">
+            <h2 class="text-4xl font-semibold text-gray-100 mb-6">Recommendations</h2>
+            <ul class="list-disc list-inside text-lg text-gray-300">
+                <li><strong>Monitor Afternoon and Evening Flights:</strong> Focus on improving punctuality in the second half of the day to avoid compounding delays.</li>
+                <li><strong>American Airlines Needs Improvement:</strong> The highest delays suggest operational inefficiencies, requiring internal evaluation.</li>
+                <li><strong>Delta Airlines as a Best Practice:</strong> Delta's low delays can serve as a model for other airlines to improve performance.</li>
+                <li><strong>External Factors Investigation:</strong> Further analysis on factors like weather and congestion can help optimize scheduling.</li>
+                <li><strong>Prioritize Early Flights:</strong> Ensuring on-time performance for early flights can reduce the cascading effect of delays throughout the day.</li>
+            </ul>
+        </section>
+    </div>
+</body>
+</html>
